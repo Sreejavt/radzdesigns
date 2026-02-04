@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radz Designs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                    <div class="navbar">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="assets/images/logo.svg" alt="Radz-logo">
+                            </a>      
+                        </div>
+                        <div class="right-container">
+                            <div class="nav-links">
+                                <a href="index.html" data-tooltip="Return to the start">Home</a>
+                                <a href="audit.html"data-tooltip="See our audit process">Audit</a>
+                                <a href="funnels.html"data-tooltip="See how we design funnels">Funnels</a>
+                                <a href="framework.html" data-tooltip="See how we architect conversions">Framework</a>
+                                <a href="contact.html" data-tooltip="Get in touch">Contact</a>
+                            </div>
+                            <div class="primary-sticky-cta"></div>
+                                <button class="sticky-button" data-tooltip="request your funnel's audit">Request an Audit</button>
+                        </div>
+                    </div>
+                </nav>
+        </header>
+
+        <main>
+            <section id="contact-hero">
+                <div class="hero-container">
+                    <div class="hero-visual">
+                        <img src="assets/images/contact-hero.png" alt="contact page visual">
+                    </div>
+                    <div class="hero-content">
+                        <div class="headline-frame">
+                            <h1 class="hero-headline">
+                                Let's Fix Your Conversion Leaks
+                            </h1>
+                            <p class="hero-subheadline">
+                                Share your site or funnel. We'll review fit and 
+                                outline next steps.
+                            </p>
+                        </div>
+                    </div>
+                </div>    
+            </section>
+
+            <section id="contact-form">
+                <div class="form-container">
+                    <h2 class="section-heading">Get Started</h2>
+                    <form action="https://formspree.io/f/xdadgkgy" method="POST">
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Enter Your Email" required 
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        <label for="service-needed">Service Interest:</label>
+                        <select name="service-needed" id="service-needed" required onchange="this.style.fontStyle = this.value === '' ? 'italic' : 'normal';">
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="audit">Audit</option>
+                            <option value="funnel">Funnel</option>
+                            <option value="Not Sure">Not Sure</option>
+                        </select>
+                        <label for="url">Current Website/Funnel URL:</label>
+                        <input type="url" name="url" id="url" placeholder="Enter Your Website URL" required>
+                        <label for="message">Brief Message About Your Biggest Conversion Challenge:</label>
+                        <textarea name="message" id="message" rows="7" placeholder="What's Not Working On Your Website or Sales? " required></textarea>
+                        <button type="submit" data-tooltip="Drop In Your Details. We'll Get Back To You.">Request An Audit</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="after-form-submission">
+                <div class="after-submission-container">
+                    <h2 class="section-heading">What Happens Next</h2>
+                    <div class="after-submission-content">
+                        <ol class="bulleted-list">
+                            <li><span class="workflow">We review your submission.</span>
+                                We'll look at your funnel or site and assess fit—typically 
+                                within <span class="strong">1-2 business days</span>.</li>
+                            <li><span class="workflow">We reach out to confirm next steps. </span>
+                                If there's alignment, we'll schedule a <span class="strong">15-minute call </span>to discuss your conversion 
+                                challenges, clarify scope, <span class="break">and determine the right service 
+                                approach.</span></li>
+                            <li><span class="workflow">You decide if it's a fit.</span>
+                                No pressure, no hard sell. If the approach makes sense, we move
+                                forward. <span class="break">If not, you'll have clarity on what needs fixing 
+                                either way</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section id="alternative-contact-options">
+                <div class="alternate-option">
+                    <h2 class="section-heading">Prefer to Connect Directly?</h2>
+                    <div class="contact-links">
+                        <p><i class="fa-sharp fa-solid fa-envelope"></i>
+                            Email:  </span><a href="mailto:sj.radzdesigns@gmail.com" data-tooltip="Send A Direct Inquiry For A Faster Response">sj.radzdesigns@gmail.com</a></p>
+                        <p><i class="fa-solid fa-phone"></i> Book A Call:  <a href="https://calendly.com/sj-radzdesigns/30min" data-tooltip="Schedule A Direct Call To Discuss Your Funnel Goals">Schedule A Discovery Call</a> </p>
+                    </div>
+                </div>
+            </section>
+
+                <section id="contact-final-cta">
+                    <div class="final-cta-container">
+                        <div class="final-headline">
+                            <h2 class="section-heading">Not ready yet? That's fine.</h2>
+                        </div>
+                        <div class="final-content">
+                        <a href="framework.html" data-tooltip="Learn The 14-Point Architecture We Use To Build High-Performance Funnels">Browse Our Framework →</a>
+                        <a href="audit.html" data-tooltip="See Real World Examples Of How We Diagnose And Fix Conversion Leaks">See Audit Examples →</a>
+                        </div>
+                    </div>
+            </section>
+             <div id="site-tooltip"></div>
+        
+            </main> 
+
+        <footer>
+            <div class="footer-container">
+                <div class="top-container">
+                    <div class="pages">
+                        <div class="frame-1">
+                            <div class="group-1">
+                                <a href="index.html">Home</a>
+                                <a href="audit.html">Audit</a>
+                                <a href="funnels.html">Funnels</a>
+                                <a href="framework.html">Framework</a>
+                                <a href="contact.html">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resources">
+                        <div class="group-2">
+                            <a href="audit.html">Sample Audits</a>
+                            <a href="funnels.html">Full Funnel Breakdowns</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-container">
+                    <div class="frame-2"></div>
+                        <p>&copy;2026 Radz Designs. All Rights Reserved</p>
+                        <div class="footer-links">
+                            <a href="framework.html">Conversion Architecture</a> |
+                            <a href="framework.html">Applied Psychology</a> |
+                            <a href="framework.html">Funnel Design</a> 
+                        </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src ="js/script.js"></script>
+</body>
+</html>
