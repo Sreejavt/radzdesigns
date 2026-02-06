@@ -885,80 +885,36 @@ button:hover {
 }
 .hamburger {
     display: none; /* hidden on desktop */
-    background: none;
-    border: none;
+    background: transparent !important; 
+    border: none !important;
+    padding: 0;
+    margin: 0;
     font-size: 28px;
     cursor: pointer;
     color: #1f1f1f;
+    z-index: 100001; /
+}
+.mobile-sticky-cta{
+    display:none;
 }
 
-/*@media (max-width: 768px) {
+@media (max-width: 768px) {
     .hamburger {
         display: block; 
     }
- 
+    .hamburger:hover, 
+    .hamburger:focus, 
+    .hamburger:active {
+        background: transparent !important;
+        color: #1f1f1f !important; /* Or a slightly lighter grey if you want feedback */
+        outline: none !important;
+        text-decoration: none;
+    }
+    
     .right-container {
-        display: none; 
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #fafaf7;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .right-container.active {
-        display: flex; 
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .sticky-button {
-        margin-top: 16px;
-        width: 100%;
-    }
-}
-@media (max-width: 768px) {
-    .navbar {
-        display: flex;
-        justify-content: space-between; 
-        align-items: center;
-        width: 100%;
-    }
-
-    .hamburger {
-        display: block; 
-        z-index: 100001; 
-    }
-}*/
-@media (max-width: 768px) {
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        position: relative;
-    }
-
-    .hamburger {
-        display: block !important; /* Forces it to show */
-        background: none;
-        border: none;
-        font-size: 28px;
-        cursor: pointer;
-        color: #1f1f1f;
-        z-index: 100001; /* Beats the 99999 tooltip */
-    }
-
-    .right-container {
-        display: none; 
-        flex-direction: column;
-        position: absolute;
+        display: none !important; /* Force hide on mobile load */
+        flex-direction: column !important;
+        position: absolute !important;
         top: 100%;
         left: 0;
         right: 0;
@@ -967,20 +923,57 @@ button:hover {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         z-index: 100000; /* Just below the button, but above the page */
     }
-
-    .right-container.active {
+     .right-container.active {
         display: flex !important; /* Ensures it overrides 'display: none' */
     }
-
+    .navbar {
+        display: flex;
+        justify-content: space-between; /* This pushes logo left and burger right */
+        align-items: center;
+        width: 100%;
+        position:relative;
+    }
+     .navbar button:hover{
+        background-color: none;
+    }
     .nav-links {
         flex-direction: column;
-        gap: 20px;
-        width: 100%;
+        gap: 32px;
     }
-
-    .sticky-button {
-        margin-top: 16px;
+    .nav-links a{
+        padding: 12px 0; /* Gives more "meat" to the link for thumbs */
         width: 100%;
         display: block;
     }
+    .nav-links a:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .sticky-button{
+        display:none;
+    }
+    .mobile-sticky-cta{
+        display:block;
+        position:fixed;
+        bottom: 16px;
+        left:50%;
+        transform: translateX(-50%);
+        z-index:10002;
+        padding: 14px 22px;
+        border-radius: 999px;
+        background-color: #7a5c4b;
+        color: white;
+        font-weight:600;
+        border:none;
+        font-size:16px
+    }
 }
+
+  
+
+
+    
+
+
+
+   
+    
