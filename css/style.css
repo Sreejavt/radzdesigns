@@ -923,3 +923,16 @@ button:hover {
         width: 100%;
     }
 }
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between; /* This pushes logo left and burger right */
+        align-items: center;
+        width: 100%;
+    }
+
+    .hamburger {
+        display: block; /* Shows only on mobile */
+        z-index: 100001; /* Higher than your tooltip */
+    }
+}
