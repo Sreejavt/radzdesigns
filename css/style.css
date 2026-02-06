@@ -892,13 +892,13 @@ button:hover {
     color: #1f1f1f;
 }
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
     .hamburger {
-        display: block; /* visible on mobile */
+        display: block; 
     }
-
+ 
     .right-container {
-        display: none; /* hidden by default on mobile */
+        display: none; 
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -910,7 +910,7 @@ button:hover {
     }
 
     .right-container.active {
-        display: flex; /* visible when toggled */
+        display: flex; 
     }
 
     .nav-links {
@@ -926,13 +926,61 @@ button:hover {
 @media (max-width: 768px) {
     .navbar {
         display: flex;
-        justify-content: space-between; /* This pushes logo left and burger right */
+        justify-content: space-between; 
         align-items: center;
         width: 100%;
     }
 
     .hamburger {
-        display: block; /* Shows only on mobile */
-        z-index: 100001; /* Higher than your tooltip */
+        display: block; 
+        z-index: 100001; 
+    }
+}*/
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: relative;
+    }
+
+    .hamburger {
+        display: block !important; /* Forces it to show */
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #1f1f1f;
+        z-index: 100001; /* Beats the 99999 tooltip */
+    }
+
+    .right-container {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fafaf7;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 100000; /* Just below the button, but above the page */
+    }
+
+    .right-container.active {
+        display: flex !important; /* Ensures it overrides 'display: none' */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .sticky-button {
+        margin-top: 16px;
+        width: 100%;
+        display: block;
     }
 }
