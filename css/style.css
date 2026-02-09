@@ -58,11 +58,12 @@ nav{
     display:flex;
     justify-content: flex-end;
     align-items:center;
-    gap: 40px;
+    gap: 20px;
+    min-width: 0;
 }
 .nav-links{
     display: flex;
-    gap: 48px;
+    gap: 24px;
     margin:0 auto; 
 }
 .nav-links a{
@@ -80,6 +81,8 @@ nav{
 }
 
 .sticky-button {
+    flex-shrink:0;
+    white-space: nowrap;
     background-color: rgba(37,99,235,0); 
     color: #1b056c;
     padding: 10px 20px; 
@@ -118,7 +121,8 @@ section{
     padding-bottom: 60px; 
 }
 .hero-container{
-    width:1050px;
+    max-width: 1050px; /* Limits size on desktop */
+    width: 100%;
     height:auto;
     display:flex;
     flex-direction:column;
@@ -141,8 +145,11 @@ section{
    line-height: 1.1;
    margin-bottom: 16px;
    text-transform: capitalize;
-    max-width: fit-content;
 }
+.headline-break{
+    display:inline-block;
+}
+
 .break{
     display:block;
 }
@@ -150,7 +157,7 @@ section{
     font-size: 20px;
     font-weight: 500;
     color: #333;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     text-transform: capitalize;
 }
 .supporting-text{
@@ -164,6 +171,13 @@ section{
 }
 .strong{
     font-weight: 700;
+}
+.core-problem-container, .value-prop-container, .about-container {
+    max-width: 875px; /* Limits width to 1000px */
+    width: 100%;       /* Ensures it stays responsive on smaller screens */
+}
+.spaceline{
+    line-height: 2;
 }
 .demo-video-container{
     width:700px;
@@ -181,6 +195,7 @@ video{
 .primary-cta-button{
     background-color: #7a5c4b;
     color:white;
+    display: block;
     width:fit-content;
     padding: 10px 50px; 
     font-size: 16px; 
@@ -189,6 +204,15 @@ video{
     border:none;
     cursor:pointer;
     box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.2);
+}
+.primary-cta-button:hover ,.final-cta-button:hover, .pricing-cta:hover{
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.primary-cta-button:active {
+    transform: translateY(0);
 }
 #site-tooltip {
     position:absolute;
@@ -270,22 +294,36 @@ video{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
+    gap: 40px;
+}
+.teaser-text {
+    flex: 1; /* Allows text to take up available space */
+    min-width: 300px; /* Prevents text from becoming too narrow */
 }
 .teaser-text .service-link-cta{
     margin-top:40px;
 }
-.framework-teaser-visual{
-    width: 1000px;
-    height:400px;
-    display:flex; /*remove flex after putting visual and remove text placeholder*/
+.framework-teaser-visual {
+    flex: 1; /* Gives equal weight to the visual */
+    max-width: 600px; /* Reduced from 1000px to prevent swallowing the row */
+    width: 100%;
+    height: auto; /* Allows height to scale with the image */
+    display: flex;
     justify-content: center;
-    align-items: center; padding: 0 50px;
-    margin-bottom: 60px;
+    align-items: center;
+    padding: 0; /* Removed 50px padding to keep width predictable */
 }
-.framework-teaser-visual img{
-    width:600px;
-    height:400px;
+
+.framework-teaser-visual img {
+    max-width: 100%; /* Ensures image stays inside the container */
+    height: auto; /* Maintains aspect ratio */
+    width: 100%;
+}
+.about-us-text{
+    display:flex;
+    flex-direction: column;
+    gap:16px;
 }
 .final-text{
     font-weight: 600;
@@ -370,7 +408,10 @@ footer {
     color: #1f1f1f;
 }
 /*audit section*/
-
+.audit-scope-container, .funnel-scope-container{
+    max-width: 800px; /* Limits width to 1000px */
+    width: 100%;       /* Ensures it stays responsive on smaller screens */
+}
 .core-areas{
     margin-top:20px;
 }
@@ -430,7 +471,7 @@ footer {
 .framework-card:hover {
     transform: translateY(-6px); /* lifts card up */
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15); /* stronger shadow */
-    border-color: rgba(37, 99, 235, 0.55);
+    border-color: rgba(37, 99, 235, 0.9);
     border-width:2px;
 }
 .card-title{
@@ -551,6 +592,15 @@ footer {
     font-weight:500;
     font-style:italic;
 }
+
+.framework-intro-container{
+    max-width:800px;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+
+}
 .funnel-scope-intro p, .framework-intro-container p, .authority-build-container p{
     line-height:2;
 }
@@ -586,7 +636,8 @@ footer {
 .framework-card{
     display:flex;
     flex-direction: column;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height:100%;
     border:1px solid #2e2e2e;
     padding:20px;
@@ -618,6 +669,10 @@ footer {
     flex-direction: column;
     gap:40px;
 }
+.framework-action-container{
+    max-width:800px;
+    width:100%;
+}
 .framework-action-contents .section-subheading{
     margin:20px 0;
 }
@@ -638,7 +693,13 @@ footer {
 .framework-action-contents p{
     margin-bottom: 24px;
 }
-
+.authority-build-container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 800px;
+    width:100%;
+}
 .final-content > :first-child{
     margin-bottom:32px;
 }
@@ -897,7 +958,20 @@ button:hover {
 .mobile-sticky-cta{
     display:none;
 }
+@media (max-width: 768px) {
+    .logo img {
+        height: 60px; /* Compact size for mobile navigation */
+    }
 
+    .logo:hover {
+        transform: none; /* Disable hover scale on touch devices to avoid "sticky" hover states */
+    }
+    
+    .logo {
+        /* Ensure it doesn't get squashed in a flex header */
+        flex: 0 0 auto; 
+    }
+}
 @media (max-width: 768px) {
     .hamburger {
         display: block; 
@@ -957,7 +1031,7 @@ button:hover {
         bottom: 16px;
         left:50%;
         transform: translateX(-50%);
-        z-index:10002;
+        z-index:99999;
         padding: 14px 22px;
         border-radius: 999px;
         background-color: #7a5c4b;
@@ -967,13 +1041,388 @@ button:hover {
         font-size:16px
     }
 }
+@media (max-width: 768px) {
+    .hero-container {
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:center;
+        width: 100%;
+        gap: 40px; /* reduce gap on mobile */
+    }
 
+    .hero-visual {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .hero-visual img {
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-headline {
+        font-size: 36px; /* reduce from 64px */
+        line-height: 1.2;
+        max-width: 100%;
+        text-align:center;
+        margin-bottom: 8px;
+    }
+
+    .hero-subheadline {
+        font-size: 18px; /* reduce from 20px */
+        margin-bottom: 16px;
+        text-align: center;
+        text-transform: none;
+    }
+
+    .supporting-text {
+        font-size: 16px;
+        text-transform: none;
+    }
+}
   
+@media (max-width: 768px) {
+    section {
+        padding-left: 20px; /* reduce from 50px */
+        padding-right: 20px;
+        margin-bottom: 40px; /* reduce from 60px */
+    }
+    p{
+        font-size: 16px; /* keep same as desktop */
+        line-height: 1.6; 
+    }
+    #services-snapshot, #value-prop, #framework-teaser, #about,
+    #audit-scope-anchor, #audit-demos, #audit-process-transparency, #audit-pricing-tiers,
+    #funnel-scope-anchor, #funnel-demo, #funnel-process-transparency, #funnel-pricing-tiers,
+    #framework-intro, #conversion-framework, #framework-applications, #framework-in-action, #authority-builder {
+        padding-bottom: 40px; /* reduce from 60px */
+    }
 
+    .core-problem-container,
+    .value-prop-container {
+        max-width: 100%;
+        margin-bottom: 16px;
+    }
 
-    
+    .break{
+        display:inline;
+    }
+    .subtext {
+        margin-top: 8px; /* slightly reduce from 10px */
+        margin-bottom: 12px;
+        display:block;
+    }
+}
 
+@media (max-width: 768px) {
 
+    .demo-video-container {
+        width: 100%;
+        height: auto;
+        margin-bottom: 32px; /* reduce from 56px */
+        padding: 0; /* remove any default padding */
+    }
 
+    video {
+        width: 100%;
+        height: auto;
+        border-radius: 8px; /* slightly reduce from 12px */
+    }
+}    
+
+@media screen and (max-width: 768px) {
+    .primary-cta-button, .final-cta-button {
+        margin: 60px auto; /* Forces the button to the center on mobile */
+        width: 100%;    /* Makes it full width for better mobile conversion */
+        max-width: 320px; /* Optional: prevents it from getting too wide on small tablets */
+        padding: 15px 20px;
+
+    }
+}
+
+@media (max-width: 768px){
+    /* 1. Stack the containers */
+    .services-card-container {
+        display: flex;  
+        flex-direction: column;
+        width: 100%;
+        gap:60px;
+    }
+    .section-heading {
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 auto 30px !important; 
+        font-size: 24px;
+    }
+    .services-card-container {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center !important;
+        width: 100% !important;
+    }
+    .services-card {
+        width: 100% !important;
+        max-width: 420px !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .services-card-headline, .card-common-headline, .section-subheading{
+        font-size: 20px;
+    }
+    .service-link-cta {
+        width:80%;
+        text-align:left;
+        margin-top: 20px !important;
+    }
+    .services-card p{
+        font-size:16px;
+        text-align: left;
+    }
+    /* 4. Hide the desktop vertical line so it doesn't stay pinned to the left */
+    .services-card-container::after {
+        display: none; 
+    }
+}
+@media (max-width: 768px) {
+    .framework-teaser-content{
+        display:flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap:60px;
+}
+    .framework-teaser-visual{
+        width: 100%;
+        height:auto;
+        padding:0;
+        margin-bottom: 60px;
+    }
+    .framework-teaser-visual img{
+        width:100%;
+        height:auto;
+}
+    .teaser-text {
+        width: 90%;
+    }
+    .spacer{
+        margin-top: 8px;
+        margin-bottom: 12px;
+    }
+    .about-us-text{
+        width:100%;
+        height:auto;
+    }
+}
+@media (max-width: 768px) {
+    .final-cta-container {
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* This centers the button horizontally */
+        gap: 16px;
+    }
    
+    .final-text {
+        width: 100%; /* Ensures text block respects the container's width */
+        font-size: 18px;
+        margin-bottom: 30px;
+        text-align: left; /* Keeps your preferred left-alignment for the text */
+        line-height: 1.6;
+        text-transform: none;
+    }
+
+    .final-cta-button {
+        width: 100%; 
+        max-width: 320px; /* Prevents the button from becoming an oversized bar */
+        padding: 18px 0;
+        font-size: 18px;
+        display: block; /* Ensures it behaves as a centered block element */
+        text-align: center; /* Centers the text inside the button */
+    }
+}
+
+/* iPad / Tablet (2 columns) */
+@media (max-width: 1024px) {
+    .stripe-card, .notion-card, .funnel-card {
+        flex: 1 1 calc(50% - 22px); /* Forces 2 columns with the gap accounted for */
+        min-width: 280px;
+    }
+    .stripe-card:last-child, .notion-card:last-child, .funnel-card:last-child{
+       max-width: 48%;
+    }
+}
+/* Mobile (1 column) */
+@media (max-width: 768px) {
+    .stripe-card-container, .notion-card-container, .funnel-card-container {
+        padding: 20px; /* Tighter padding for mobile screens */
+    }
+    .stripe-card, .notion-card,.funnel-card {
+        flex: 1 1 100%; /* Full width stack */
+        margin-bottom: 0px; /* Gap: 22px handles the spacing now */
+    }
+
+    .card-title {
+        min-height: auto; /* Let it flow naturally on mobile */
+        text-align: center;
+    }
+    .stripe-link-cta, .notion-link-cta, .funnel-link-cta{
+        padding-bottom: 16px;
+        padding-top: 16px;
+    }
+    .stripe-card:last-child, .notion-card:last-child, .funnel-card:last-child{
+       max-width: 100%;
+    }
+    .focused-audit-container, .audit-scope-intro, .core-problem-container, .value-prop-container, 
+    .framework-teaser-content, .about-container, .audit-disclaimer-container, .funnel-scope-intro,
+    .funnel-disclaimer-container, .framework-intro-container, .authority-build-container,
+    .framework-action-container, .framework-applications{
+        max-width: 100%;
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .mobile-hide {
+        display: none;
+    }
+}
+@media (max-width: 480px) {
+    .mobile-dis {
+        display: inline-block;
+    }
+}
+@media (max-width: 768px) {
+    .deliverable-content {
+        width: 100%; /* Overrides the 800px width */
+        padding: 0 20px; /* Provides the side breath */
+    }
+    .tier-cta {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 45px; 
+        margin-bottom: 20px; 
+    }
+    .pricing-cta {
+        padding: 18px 32px; /* Increased internal padding for a more substantial look */
+        width: auto;
+        min-width: 280px; /* Makes it a solid target for the thumb */
+        font-size: 17px; /* Slight bump for readability on small screens */
+    }
+}
+
+@media (max-width: 768px){
+    .subsection-subheading{
+        font-size:18px;
+    }
+    }
+@media (max-width: 768px) {
+    .framework-row {
+        /* This forces exactly one card per row */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .framework-card {
+        /* This kills the 400px width that causes the overflow */
+        width: 100%; 
+        max-width: 100%;
+     
+    }
+
+    /* Ensuring the outer wrappers don't force a width */
+    .cognitive-clarity, 
+    .behavioral-flow, 
+    .structural-integrity {
+        width: 100%;
+        padding: 20px;
+    }
+}
+@media (max-width< 1024px) {
+    .framework-row {
+        /* Switch to 2 columns for better readability */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
     
+    .framework-card {
+        width: auto; /* Releases the 400px fixed width to fit the grid cell */
+    }
+
+    section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #framework-hero .hero-headline, #framework-hero .hero-subheadline{
+        width: 100%;
+    }
+    
+}
+@media (max-width: 480px) { /* Targeting standard mobile widths */
+    .framework-row {
+        /* Forces the grid to only allow one card per row */
+        grid-template-columns: 1fr !important; 
+        display: grid;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .framework-card {
+        /* Completely overrides the 400px desktop width */
+        width: 100% !important; 
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Prevents the category containers from holding onto desktop widths */
+    .cognitive-clarity, 
+    .behavioral-flow, 
+    .structural-integrity {
+        width: 100%;
+        padding: 15px; /* Slightly tighter for small screens */
+    }
+}
+@media (max-width: 768px) {
+    .alternate-option {
+        width: 100%;
+        padding: 20px;
+        text-align: center; /* Centers the heading and text for mobile readability */
+    }
+
+    .contact-links {
+        gap: 20px; /* Tightens the gap slightly for smaller screens */
+        align-items: center; /* Centers the flex items (the <p> tags) */
+    }
+
+    .contact-links p {
+        font-size: 15px; /* Slight scale down for small devices */
+        line-height: 1.4;
+    }
+
+    .contact-links a {
+        display: block; /* Makes the link a larger tap target */
+        margin-top: 4px;
+    }
+    
+}
+
+@media (max-width: 480px) { 
+    .bracket-title{
+        display:inline;
+    }
+}
+@media (max-width: 820px) { 
+    .headline-break{
+        display: inline;
+    }
+    .break{
+        display:inline;
+    }
+}
+@media (max-width: 1024px){
+    .break{
+        display:inline;
+    }
+}

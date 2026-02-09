@@ -40,6 +40,8 @@ hamburger.addEventListener('click', function() {
 
 
 
+
+
 //button-navigation
 const allButtons = document.querySelectorAll('.sticky-button:not([onclick]), .primary-cta-button:not([onclick]), .final-cta-button, .pricing-cta, .mobile-sticky-cta');
 //const allButtons = document.querySelectorAll('.sticky-button, .primary-cta-button, .final-cta-button, .pricing-cta');
@@ -53,35 +55,34 @@ allButtons.forEach(button => {
     });
 });
 
+window.addEventListener('scroll', () => {
+  document.querySelector('.mobile-sticky-cta')
+    .classList.toggle('show', window.scrollY > 300);
+});
 
 const tooltip = document.getElementById('site-tooltip');
-
 document.addEventListener('mouseover', (e) => {
-    // The "Trigger": Find if what we hovered over has a tooltip attribute
-    const target = e.target.closest('[data-tooltip]');  //targets the closest parent element of tool-tip avoiding children
-    
+    // STOP the function if the screen is mobile (less than 768px)
+    if (window.innerWidth < 768) return;
+
+    const target = e.target.closest('[data-tooltip]');
     if (target) {
-        // 1. Get the custom text you wrote in the HTML
         const message = target.getAttribute('data-tooltip');
-        
-        // 2. Put that text into the site-tooltip div
         tooltip.textContent = message;
-        
-        // 3. Make it visible
         tooltip.style.display = 'block';
     }
 });
 
 document.addEventListener('mousemove', (e) => {
-    // This moves the box so it follows the mouse cursor
+    // Only move if the tooltip is actually visible
     if (tooltip.style.display === 'block') {
-        tooltip.style.left = e.pageX + 15+ 'px';
-        tooltip.style.top = e.pageY + 15+ 'px';
+        tooltip.style.left = e.pageX + 15 + 'px';
+        tooltip.style.top = e.pageY + 15 + 'px';
     }
 });
 
 document.addEventListener('mouseout', (e) => {
-    // When the mouse leaves the trigger, hide the tooltip
+    // Always allow hiding to ensure it doesn't get "stuck" visible
     if (e.target.closest('[data-tooltip]')) {
         tooltip.style.display = 'none';
     }
