@@ -953,7 +953,7 @@ button:hover {
     font-size: 28px;
     cursor: pointer;
     color: #1f1f1f;
-    z-index: 100001; /
+    z-index: 100001; 
 }
 .mobile-sticky-cta{
     display:none;
